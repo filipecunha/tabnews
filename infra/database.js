@@ -9,6 +9,10 @@ const query = async (queryObject) => {
 		password: process.env.POSTGRES_PASSWORD,
 	});
 
+	console.log(`==========================`);
+	console.log(`==========================`);
+	console.log(`==========================`);
+
 	console.log('Credendenciais POSTGRES:', {
 		host: process.env.POSTGRES_HOST,
 		port: process.env.POSTGRES_PORT,
