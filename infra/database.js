@@ -7,6 +7,9 @@ const query = async (queryObject) => {
 		user: process.env.POSTGRES_USER,
 		database: process.env.POSTGRES_DB,
 		password: process.env.POSTGRES_PASSWORD,
+		ssl: {
+			rejectUnauthorized: false,
+		},
 	});
 
 	console.log(`==========================`);
