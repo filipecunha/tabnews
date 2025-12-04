@@ -1,17 +1,21 @@
 import { Client } from 'pg';
 
 const query = async (queryObject) => {
-	const client = new Client({
+	const connectionConfig = {
 		host: process.env.POSTGRES_HOST,
 		port: process.env.POSTGRES_PORT,
 		user: process.env.POSTGRES_USER,
 		database: process.env.POSTGRES_DB,
 		password: process.env.POSTGRES_PASSWORD,
-		// Uncomment the following lines if this file goes to production
-		// ssl: {
-		// 	rejectUnauthorized: false,
-		// },
-	});
+	};
+
+	if (process.env.environment !== 'development') {
+		connectionConfig.ssl = {
+			rejectUnauthorized: false,
+		};
+	}
+
+	const client = new Client(connectionConfig);
 
 	console.log(`==========================`);
 	console.log(`==========================`);
