@@ -7,13 +7,14 @@ const query = async (queryObject) => {
 		user: process.env.POSTGRES_USER,
 		database: process.env.POSTGRES_DB,
 		password: process.env.POSTGRES_PASSWORD,
+		ssl: process.env.NODE_ENV === 'production' ? true : false,
 	};
 
-	if (process.env.environment !== 'development') {
-		connectionConfig.ssl = {
-			rejectUnauthorized: false,
-		};
-	}
+	// if (process.env.NODE_ENV === 'development') {
+	// 	connectionConfig.ssl = {
+	// 		rejectUnauthorized: false,
+	// 	};
+	// }
 
 	const client = new Client(connectionConfig);
 
