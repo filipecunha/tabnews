@@ -8,6 +8,8 @@ const query = async (queryObject) => {
 		database: process.env.POSTGRES_DB,
 		password: process.env.POSTGRES_PASSWORD,
 		ssl: process.env.NODE_ENV === 'production' ? true : false,
+		PGSSLMODE: 'require',
+		PGCHANNELBINDING: 'require',
 	};
 
 	// if (process.env.NODE_ENV === 'development') {
