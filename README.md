@@ -1,3 +1,3 @@
 # tabnews
 
-Implementação do tabnews.com.br do curso.dev
+Use o Codespaces do Github e não o VS Code local
